@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Planes de Internet Cable Sistema</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #dedde9;
+      padding: 30px;
+    }
+    header {
+      background-color: #f1f3f5;
+      color: rgb(42, 16, 194);
+      padding: 20px;
+      text-align: center;
+    }
+    section {
+      padding: 20px;
+    }
+    h2 {
+      color: #151616;
+      margin-bottom: 20px;
+    }
+    .plan-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .plan {
+      background-color: white;
+      border: 1px solid #181717;
+      border-radius: 8px;
+      width: 300px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .plan img {
+      width: 100%;
+      border-radius: 6px;
+    }
+    .plan h3 {
+      margin-top: 10px;
+      color: #333;
+      text-align: center;
+    }
+    ul {
+      margin-top: 30px;
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    .cta {
+      background-color: #5ba5d6;
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 10px;
+      transition: background 0.2s;
+    }
+    .cta:hover {
+      background-color: #2640d4;
+    }
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 30px 20px;
+      border-radius: 8px;
+      max-width: 350px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+    }
+    .modal-content input, .modal-content textarea {
+      width: 90%;
+      margin: 10px 0;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    .close-modal {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 22px;
+      color: #888;
+      cursor: pointer;
+    }
+    .modal-content button {
+      background: #5ba5d6;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .modal-content button:hover {
+      background: #2640d4;
+    }
+    @media (max-width: 900px) {
+      .plan-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      body {
+        padding: 10px;
+      }
+    }
+  </style>
+  <script>
+    function abrirModal(plan) {
+      document.getElementById('solicitarModal').style.display = 'flex';
+      document.getElementById('planSeleccionado').value = plan;
+      document.getElementById('solicitudForm').reset();
+    }
+    function cerrarModal() {
+      document.getElementById('solicitarModal').style.display = 'none';
+    }
+    window.onclick = function(event) {
+      var modal = document.getElementById('solicitarModal');
+      if (event.target == modal) {
+        cerrarModal();
+      }
+    };
+  </script>
+</head>
+<body>
+
+<header>
+  <img src="logo.12.jpg" alt="Kit profesional HD">
+  <h1>Cable Sistema</h1>
+  <p>¡Más de 110 canales en alta definición para toda la familia!</p>
+</header>
+  <h2>Planes de Internet Simétrico</h2>
+
+  <div class="plan-container">
+    <div class="plan">
+      <img src="logo-01.png" alt="Plan A">
+      <h3>Plan A - 50 Mbps</h3>
+      <p><strong>Precio:</strong> L. 600</p>
+      <p><strong>Extras:</strong> 1 Caja HD</p><p>Instalacion Gratis</p>
+      <a href="#" class="cta" onclick="abrirModal('Plan A - 50 Mbps')">Solicitar</a>
+    </div>
+
+    <div class="plan">
+      <img src="logo-01.png" alt="Plan B">
+      <h3>Plan B - 75 Mbps</h3>
+      <p><strong>Precio:</strong> L. 800</p>
+      <p><strong>Extras:</strong> 1 Caja HD </p><p> 1 Camara de Seguridad </p><p>Instalacion Gratis</p>
+      <a href="#" class="cta" onclick="abrirModal('Plan B - 75 Mbps')">Solicitar</a>
+    </div>
+
+    <div class="plan">
+      <img src="logo-01.png" alt="Plan C">
+      <h3>Plan C - 100 Mbps</h3>
+      <p><strong>Precio:</strong> L. 1,000</p>
+      <p><strong>Extras:</strong> 1 caja HD </p><p>1 Camara de Seguridad </p><p>Mini UPS y Banco de Bateria EZ Portable </p>
+      <a href="#" class="cta" onclick="abrirModal('Plan C - 100 Mbps')">Solicitar</a>
+    </div>
+
+    <div class="plan">
+      <img src="logo-01.png" alt="Plan D">
+      <h3>Plan D - 200 Mbps</h3>
+      <p><strong>Precio:</strong> L. 2,000</p>
+      <p><strong>Extras:</strong> 1 Caja HD</p><p>1 Camara de Seguridad</p><p>Mini UPS y Banco de Bateria EZ Portable</p>
+      <a href="#" class="cta" onclick="abrirModal('Plan D - 200 Mbps')">Solicitar</a>
+    </div>
+  </div>
+
+  <ul>
+    <li>🛜 WIFI 5G y 6G</li>
+    <li>🎮 Servicios IP para gamers</li>
+    <li>🏢 Planes residenciales y empresariales</li>
+  </ul>
+  </section>
+
+<section>
+  <h2>¿Por qué elegirnos?</h2>
+  <ul>
+    <li>Instalación gratuita en zonas seleccionadas</li>
+    <li>Guía interactiva y control parental</li>
+    <li>Soporte técnico 24/7</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Contáctanos</h2>
+  <p>📱 WhatsApp: +504 99999991</p>
+  <p>📧 Email: arielreyesalcerro@gmail.com</p>
+  <p>📍 Oficinas: sps, Cortés</p>
+</section>
+<footer>
+  <p>&copy; 2025 Cable Sistema. Todos los derechos reservados.</p>
+</footer>
+
+<!-- Modal para solicitar -->
+<div class="modal" id="solicitarModal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="cerrarModal()">&times;</span>
+    <h3>Solicitar Plan</h3>
+    <form id="solicitudForm" action="https://formsubmit.co/arielreyesalcerro@gmail.com" method="POST">
+      <input type="hidden" id="planSeleccionado" name="Plan">
+      <label for="id">Número de Identificación:</label><br>
+      <input type="text" id="id" name="Identificación" required><br>
+      <label for="telefono">Número de Teléfono:</label><br>
+      <input type="tel" id="telefono" name="Teléfono" required pattern="[0-9+ ]{8,15}"><br>
+      <label for="direccion">Dirección:</label><br>
+      <textarea id="direccion" name="Dirección" rows="2" required></textarea><br>
+      <button type="submit">Enviar Solicitud</button>
+      </form>
+  </div>
+</div>
+</body>
+</html>
