@@ -4,72 +4,206 @@
   <meta charset="UTF-8">
   <title>Planes de Internet Cable Sistema</title>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; }
     body {
-      font-family: Arial, sans-serif;
-      background-color: #dedde9;
-      padding: 30px;
+      background: linear-gradient(135deg, #0a2540 0%, #1e90a6 100%);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      min-height: 100vh;
+      position: relative;
+      padding: 30px 0 0 0;
+      color: #eaf6fb;
     }
+    .container {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      position: fixed;
+      top: 0; left: 0;
+      z-index: 0;
+      pointer-events: none;
+      filter: blur(2px) brightness(0.95);
+    }
+    .circle-container {
+      position: absolute;
+      transform: translateY(-10vh);
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      pointer-events: none;
+    }
+    .circle-container .circle {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      mix-blend-mode: screen;
+      background-image: radial-gradient(#00ffb3, #1e90a6 10%, rgba(30,144,166,0) 56%);
+      animation: fade-frames 200ms infinite, scale-frames 2s infinite;
+    }
+    @keyframes fade-frames {
+      0% { opacity: 1; }
+      50% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+    @keyframes scale-frames {
+      0% { transform: scale3d(0.4,0.4,1);}
+      50% { transform: scale3d(2.2,2.2,1);}
+      100% { transform: scale3d(0.4,0.4,1);}
+    }
+    .circle-container:nth-child(1) { width:5px; height:5px; animation-name: move-frames-1; animation-duration: 31629ms; animation-delay: 1688ms;}
+    @keyframes move-frames-1 { from {transform:translate3d(95vw,105vh,0);} to {transform:translate3d(17vw,-109vh,0);} }
+    .circle-container:nth-child(1) .circle { animation-delay: 3101ms;}
+    .circle-container:nth-child(2) { width:8px; height:8px; animation-name: move-frames-2; animation-duration: 29829ms; animation-delay: 2802ms;}
+    @keyframes move-frames-2 { from {transform:translate3d(34vw,108vh,0);} to {transform:translate3d(81vw,-134vh,0);} }
+    .circle-container:nth-child(2) .circle { animation-delay: 2865ms;}
+    .circle-container:nth-child(3) { width:10px; height:10px; animation-name: move-frames-3; animation-duration: 31166ms; animation-delay: 2856ms;}
+    @keyframes move-frames-3 { from {transform:translate3d(52vw,108vh,0);} to {transform:translate3d(41vw,-133vh,0);} }
+    .circle-container:nth-child(3) .circle { animation-delay: 3469ms;}
+    .circle-container:nth-child(4) { width:7px; height:7px; animation-name: move-frames-4; animation-duration: 31210ms; animation-delay: 3816ms;}
+    @keyframes move-frames-4 { from {transform:translate3d(29vw,101vh,0);} to {transform:translate3d(47vw,-103vh,0);} }
+    .circle-container:nth-child(4) .circle { animation-delay: 3947ms;}
+    .circle-container:nth-child(5) { width:12px; height:12px; animation-name: move-frames-5; animation-duration: 32610ms; animation-delay: 1293ms;}
+    @keyframes move-frames-5 { from {transform:translate3d(20vw,104vh,0);} to {transform:translate3d(76vw,-131vh,0);} }
+    .circle-container:nth-child(5) .circle { animation-delay: 554ms;}
+    .circle-container:nth-child(6) { width:6px; height:6px; animation-name: move-frames-6; animation-duration: 36741ms; animation-delay: 1650ms;}
+    @keyframes move-frames-6 { from {transform:translate3d(40vw,102vh,0);} to {transform:translate3d(6vw,-117vh,0);} }
+    .circle-container:nth-child(6) .circle { animation-delay: 2052ms;}
+    .circle-container:nth-child(7) { width:9px; height:9px; animation-name: move-frames-7; animation-duration: 32297ms; animation-delay: 3610ms;}
+    @keyframes move-frames-7 { from {transform:translate3d(76vw,109vh,0);} to {transform:translate3d(23vw,-117vh,0);} }
+    .circle-container:nth-child(7) .circle { animation-delay: 347ms;}
+    .circle-container:nth-child(8) { width:7px; height:7px; animation-name: move-frames-8; animation-duration: 30947ms; animation-delay: 1614ms;}
+    @keyframes move-frames-8 { from {transform:translate3d(6vw,107vh,0);} to {transform:translate3d(42vw,-135vh,0);} }
+    .circle-container:nth-child(8) .circle { animation-delay: 492ms;}
+    .circle-container:nth-child(9) { width:5px; height:5px; animation-name: move-frames-9; animation-duration: 31436ms; animation-delay: 2332ms;}
+    @keyframes move-frames-9 { from {transform:translate3d(86vw,101vh,0);} to {transform:translate3d(71vw,-104vh,0);} }
+    .circle-container:nth-child(9) .circle { animation-delay: 1387ms;}
+    .circle-container:nth-child(10) { width:11px; height:11px; animation-name: move-frames-10; animation-duration: 33449ms; animation-delay: 2638ms;}
+    @keyframes move-frames-10 { from {transform:translate3d(68vw,109vh,0);} to {transform:translate3d(33vw,-115vh,0);} }
+    .circle-container:nth-child(10) .circle { animation-delay: 3979ms;}
+
     header {
-      background-color: #f1f3f5;
-      color: rgb(42, 16, 194);
-      padding: 20px;
+      background: linear-gradient(90deg, #1e90a6 0%, #0a2540 100%);
+      color: #00ffb3;
+      padding: 28px 10px 18px 10px;
       text-align: center;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      box-shadow: 0 4px 24px 0 rgba(30,144,166,0.15);
+      position: relative;
+      z-index: 1;
     }
-    section {
-      padding: 20px;
+    header h1 {
+      font-size: 2.3rem;
+      margin-bottom: 6px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #00ffb3;
+      text-shadow: 0 2px 8px #0a2540;
+    }
+    header p {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #eaf6fb;
+      text-shadow: 0 1px 4px #0a2540;
+    }
+    section, .plan-container, ul, footer {
+      position: relative;
+      z-index: 1;
     }
     h2 {
-      color: #151616;
-      margin-bottom: 20px;
+      color: #00ffb3;
+      margin: 36px 0 18px 0;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-align: center;
+      text-shadow: 0 1px 4px #0a2540;
     }
     .plan-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 28px;
       justify-content: center;
+      margin-bottom: 10px;
     }
     .plan {
-      background-color: white;
-      border: 1px solid #181717;
-      border-radius: 8px;
+      background: linear-gradient(135deg, #1e90a6 60%, #0a2540 100%);
+      border: 2px solid #00ffb3;
+      border-radius: 18px;
       width: 300px;
-      padding: 15px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 22px 18px 18px 18px;
+      box-shadow: 0 4px 24px 0 rgba(30,144,166,0.13);
+      transition: transform 0.18s, box-shadow 0.18s, border 0.18s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .plan:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 8px 32px 0 rgba(0,255,179,0.22);
+      border-color: #ff9100;
     }
     .plan img {
       width: 100%;
-      border-radius: 6px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px #00ffb344;
+      background: #fff;
     }
     .plan h3 {
-      margin-top: 10px;
-      color: #333;
+      margin-top: 14px;
+      color: #00ffb3;
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-shadow: 0 1px 4px #0a2540;
+    }
+    .plan p {
+      color: #eaf6fb;
+      font-size: 1.05rem;
+      margin: 4px 0;
       text-align: center;
     }
     ul {
       margin-top: 30px;
-      padding-left: 20px;
+      padding-left: 28px;
+      font-size: 1.08rem;
     }
     li {
       margin-bottom: 8px;
+      color: #00ffb3;
+      font-weight: 500;
+      text-shadow: 0 1px 4px #0a2540;
     }
     .cta {
-      background-color: #5ba5d6;
-      color: white;
-      padding: 10px;
+      background: linear-gradient(90deg, #ff9100 0%, #ffb300 100%);
+      color: #fff;
+      padding: 11px 0;
+      width: 100%;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 7px;
       display: inline-block;
-      margin-top: 10px;
-      transition: background 0.2s;
+      margin-top: 12px;
+      font-size: 1.08rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 8px #ff910044;
+      border: none;
+      transition: background 0.2s, box-shadow 0.2s;
+      text-align: center;
     }
     .cta:hover {
-      background-color: #2640d4;
+      background: linear-gradient(90deg, #ffb300 0%, #ff9100 100%);
+      box-shadow: 0 4px 16px #ff910055;
     }
     footer {
-      background-color: #003366;
-      color: white;
+      background: linear-gradient(90deg, #1e90a6 0%, #0a2540 100%);
+      color: #00ffb3;
       text-align: center;
-      padding: 10px;
+      padding: 16px 0 12px 0;
+      font-size: 1.05rem;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+      margin-top: 40px;
+      box-shadow: 0 -2px 16px 0 rgba(30,144,166,0.10);
+      text-shadow: 0 1px 4px #0a2540;
     }
     /* Modal styles */
     .modal {
@@ -78,45 +212,68 @@
       z-index: 1000;
       left: 0; top: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
+      background: rgba(30, 144, 166, 0.25);
       justify-content: center;
       align-items: center;
+      backdrop-filter: blur(2px);
     }
     .modal-content {
-      background: #fff;
-      padding: 30px 20px;
-      border-radius: 8px;
+      background: linear-gradient(135deg, #1e90a6 60%, #0a2540 100%);
+      padding: 32px 20px 22px 20px;
+      border-radius: 16px;
       max-width: 350px;
-      width: 90%;
+      width: 92%;
       text-align: center;
       position: relative;
+      box-shadow: 0 8px 32px 0 rgba(30,144,166,0.22);
+      border: 2px solid #00ffb3;
     }
     .modal-content input, .modal-content textarea {
-      width: 90%;
+      width: 92%;
       margin: 10px 0;
-      padding: 8px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
+      padding: 9px;
+      border-radius: 6px;
+      border: 1.5px solid #00ffb3;
+      font-size: 1rem;
+      background: #eaf6fb;
+      color: #0a2540;
+      outline: none;
+      transition: border 0.2s;
+    }
+    .modal-content input:focus, .modal-content textarea:focus {
+      border: 1.5px solid #ff9100;
     }
     .close-modal {
       position: absolute;
       top: 8px;
       right: 12px;
-      font-size: 22px;
-      color: #888;
+      font-size: 26px;
+      color: #ff9100;
       cursor: pointer;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+    .close-modal:hover {
+      color: #00ffb3;
     }
     .modal-content button {
-      background: #5ba5d6;
+      background: linear-gradient(90deg, #ff9100 0%, #ffb300 100%);
       color: #fff;
       border: none;
-      padding: 10px 18px;
-      border-radius: 5px;
+      padding: 11px 0;
+      width: 100%;
+      border-radius: 7px;
       cursor: pointer;
       margin-top: 10px;
+      font-size: 1.08rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 8px #ff910044;
+      transition: background 0.2s, box-shadow 0.2s;
     }
     .modal-content button:hover {
-      background: #2640d4;
+      background: linear-gradient(90deg, #ffb300 0%, #ff9100 100%);
+      box-shadow: 0 4px 16px #ff910055;
     }
     @media (max-width: 900px) {
       .plan-container {
@@ -124,11 +281,26 @@
         align-items: center;
       }
       body {
-        padding: 10px;
+        padding: 10px 0 0 0;
+      }
+      header, footer {
+        border-radius: 0;
       }
     }
   </style>
   <script>
+    // Fondo animado técnico
+    window.onload = function() {
+      const container = document.createElement('div');
+      container.className = 'container';
+      for(let i=1; i<=10; i++) {
+        const cc = document.createElement('div');
+        cc.className = 'circle-container';
+        cc.innerHTML = '<div class="circle"></div>';
+        container.appendChild(cc);
+      }
+      document.body.prepend(container);
+    };
     function abrirModal(plan) {
       document.getElementById('solicitarModal').style.display = 'flex';
       document.getElementById('planSeleccionado').value = plan;
@@ -146,55 +318,46 @@
   </script>
 </head>
 <body>
-
 <header>
-  <img src="logo.12.jpg" alt="Kit profesional HD">
   <h1>Cable Sistema</h1>
   <p>¡Más de 110 canales en alta definición para toda la familia!</p>
 </header>
   <h2>Planes de Internet Simétrico</h2>
-
   <div class="plan-container">
     <div class="plan">
       <img src="logo-01.png" alt="Plan A">
       <h3>Plan A - 50 Mbps</h3>
       <p><strong>Precio:</strong> L. 600</p>
-      <p><strong>Extras:</strong> 1 Caja HD</p><p>Instalacion Gratis</p>
+      <p><strong>Extras:</strong> 1 Caja HD</p><p>Instalación Gratis</p>
       <a href="#" class="cta" onclick="abrirModal('Plan A - 50 Mbps')">Solicitar</a>
     </div>
-
     <div class="plan">
       <img src="logo-01.png" alt="Plan B">
       <h3>Plan B - 75 Mbps</h3>
       <p><strong>Precio:</strong> L. 800</p>
-      <p><strong>Extras:</strong> 1 Caja HD </p><p> 1 Camara de Seguridad </p><p>Instalacion Gratis</p>
+      <p><strong>Extras:</strong> 1 Caja HD </p><p> 1 Cámara de Seguridad </p><p>Instalación Gratis</p>
       <a href="#" class="cta" onclick="abrirModal('Plan B - 75 Mbps')">Solicitar</a>
     </div>
-
     <div class="plan">
       <img src="logo-01.png" alt="Plan C">
       <h3>Plan C - 100 Mbps</h3>
       <p><strong>Precio:</strong> L. 1,000</p>
-      <p><strong>Extras:</strong> 1 caja HD </p><p>1 Camara de Seguridad </p><p>Mini UPS y Banco de Bateria EZ Portable </p>
+      <p><strong>Extras:</strong> 1 Caja HD </p><p>1 Cámara de Seguridad </p><p>Instalacion Gratis</p>
       <a href="#" class="cta" onclick="abrirModal('Plan C - 100 Mbps')">Solicitar</a>
     </div>
-
     <div class="plan">
       <img src="logo-01.png" alt="Plan D">
       <h3>Plan D - 200 Mbps</h3>
       <p><strong>Precio:</strong> L. 2,000</p>
-      <p><strong>Extras:</strong> 1 Caja HD</p><p>1 Camara de Seguridad</p><p>Mini UPS y Banco de Bateria EZ Portable</p>
+      <p><strong>Extras:</strong> 1 Caja HD</p><p>1 Cámara de Seguridad</p><p>Mini UPS y Banco de Batería EZ Portable</p>
       <a href="#" class="cta" onclick="abrirModal('Plan D - 200 Mbps')">Solicitar</a>
     </div>
   </div>
-
   <ul>
     <li>🛜 WIFI 5G y 6G</li>
     <li>🎮 Servicios IP para gamers</li>
     <li>🏢 Planes residenciales y empresariales</li>
   </ul>
-  </section>
-
 <section>
   <h2>¿Por qué elegirnos?</h2>
   <ul>
@@ -203,17 +366,15 @@
     <li>Soporte técnico 24/7</li>
   </ul>
 </section>
-
 <section>
   <h2>Contáctanos</h2>
   <p>📱 WhatsApp: +504 89457861</p>
   <p>📧 Email: arielreyesalcerro@gmail.com</p>
-  <p>📍 Oficinas: Choloma,Cortés </p>
+  <p>📍 Oficinas: Choloma, Cortés</p>
 </section>
 <footer>
   <p>&copy; 2025 Cable Sistema. Todos los derechos reservados.</p>
 </footer>
-
 <!-- Modal para solicitar -->
 <div class="modal" id="solicitarModal">
   <div class="modal-content">
@@ -221,8 +382,6 @@
     <h3>Solicitar Plan</h3>
     <form id="solicitudForm" action="https://formsubmit.co/arielreyesalcerro@gmail.com" method="POST">
       <input type="hidden" id="planSeleccionado" name="Plan">
-       <label for="nombre">Nombre completo:</label><br>
-      <input type="text" id="nombre" name="Nombre" required><br>
       <label for="id">Número de Identificación:</label><br>
       <input type="text" id="id" name="Identificación" required><br>
       <label for="telefono">Número de Teléfono:</label><br>
