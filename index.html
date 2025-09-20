@@ -379,23 +379,39 @@
 <div class="modal" id="solicitarModal">
   <div class="modal-content">
     <span class="close-modal" onclick="cerrarModal()">&times;</span>
-    <h3>Solicitar Plan</h3>
+    <h3>Solicita tu Plan Tecnológico 🚀</h3>
     <form id="solicitudForm" action="https://formsubmit.co/arielreyesalcerro@gmail.com" method="POST">
       <input type="hidden" id="planSeleccionado" name="Plan">
-      <label for="nombre">Nombre completo:</label><br>
-       <input type="text" id="nombre" name="Nombre" required><br>
-      <label for="id">Número de Identificación:</label><br>
-      <input type="text" id="id" name="Identificación" required><br>
-      <label for="telefono">Número de Teléfono:</label><br>
-      <input type="tel" id="telefono" name="Teléfono" required pattern="[0-9+ ]{8,15}"><br>
-      <label for="direccion">Dirección:</label><br>
-      <textarea id="direccion" name="Dirección" rows="2" required></textarea><br>
-      <button type="submit">Enviar Solicitud</button>
-      </form>
+      <label for="nombre">👤 Nombre completo (usuario):</label><br>
+      <input type="text" id="nombre" name="Nombre" required autocomplete="name" placeholder="Ej: Alexa Quantum"><br>
+      <label for="id">🆔 Identificación digital:</label><br>
+      <input type="text" id="id" name="Identificación" required placeholder="Tu número de identidad"><br>
+      <label for="telefono">📱 Teléfono inteligente:</label><br>
+      <input type="tel" id="telefono" name="Teléfono" required pattern="[0-9+ ]{8,15}" placeholder="+504 9999-9999"><br>
+      <label for="direccion">📡 Dirección de instalación:</label><br>
+      <textarea id="direccion" name="Dirección" rows="2" required placeholder="Ciudad, colonia, referencia..."></textarea><br>
+      <button type="button" onclick="obtenerUbicacion()" style="margin-bottom:10px;background:#00ffb3;color:#0a2540;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;">📍 Obtener mi ubicación GPS</button>
+      <button type="submit">¡Conectar al Futuro!</button>
+    </form>
   </div>
 </div>
+<script>
+function obtenerUbicacion() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      const coords = `Lat: ${position.coords.latitude}, Lng: ${position.coords.longitude}`;
+      document.getElementById('direccion').value += (document.getElementById('direccion').value ? '\n' : '') + coords;
+    }, function(error) {
+      alert('No se pudo obtener la ubicación: ' + error.message);
+    });
+  } else {
+    alert('La geolocalización no es soportada por este navegador.');
+  }
+}
+</script>
 </body>
 </html>
+
 
 
 
