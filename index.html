@@ -2,6 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cable Sistema - Planes de Internet y Cable TV en Choloma, Cortés">
   <title>Planes de Internet Cable Sistema</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,63 +24,29 @@
       top: 0; left: 0;
       z-index: 0;
       pointer-events: none;
-      filter: blur(2px) brightness(0.95);
+      filter: blur(2.5px) brightness(0.97);
     }
     .circle-container {
       position: absolute;
-      transform: translateY(-10vh);
+      will-change: transform, opacity;
+      pointer-events: none;
       animation-iteration-count: infinite;
       animation-timing-function: linear;
-      pointer-events: none;
     }
-    .circle-container .circle {
+    .circle {
       width: 100%; height: 100%;
       border-radius: 50%;
       mix-blend-mode: screen;
-      background-image: radial-gradient(#00ffb3, #1e90a6 10%, rgba(30,144,166,0) 56%);
-      animation: fade-frames 200ms infinite, scale-frames 2s infinite;
+      background: radial-gradient(circle at 60% 40%, #00ffb3 0%, #1e90a6 60%, rgba(30,144,166,0) 100%);
+      box-shadow: 0 0 32px 8px #00ffb355, 0 0 64px 16px #1e90a655;
+      opacity: 0.7;
+      animation: fade-frames 2.5s infinite alternate;
     }
     @keyframes fade-frames {
-      0% { opacity: 1; }
-      50% { opacity: 0.7; }
-      100% { opacity: 1; }
+      0% { opacity: 0.5; }
+      50% { opacity: 0.9; }
+      100% { opacity: 0.5; }
     }
-    @keyframes scale-frames {
-      0% { transform: scale3d(0.4,0.4,1);}
-      50% { transform: scale3d(2.2,2.2,1);}
-      100% { transform: scale3d(0.4,0.4,1);}
-    }
-    .circle-container:nth-child(1) { width:5px; height:5px; animation-name: move-frames-1; animation-duration: 31629ms; animation-delay: 1688ms;}
-    @keyframes move-frames-1 { from {transform:translate3d(95vw,105vh,0);} to {transform:translate3d(17vw,-109vh,0);} }
-    .circle-container:nth-child(1) .circle { animation-delay: 3101ms;}
-    .circle-container:nth-child(2) { width:8px; height:8px; animation-name: move-frames-2; animation-duration: 29829ms; animation-delay: 2802ms;}
-    @keyframes move-frames-2 { from {transform:translate3d(34vw,108vh,0);} to {transform:translate3d(81vw,-134vh,0);} }
-    .circle-container:nth-child(2) .circle { animation-delay: 2865ms;}
-    .circle-container:nth-child(3) { width:10px; height:10px; animation-name: move-frames-3; animation-duration: 31166ms; animation-delay: 2856ms;}
-    @keyframes move-frames-3 { from {transform:translate3d(52vw,108vh,0);} to {transform:translate3d(41vw,-133vh,0);} }
-    .circle-container:nth-child(3) .circle { animation-delay: 3469ms;}
-    .circle-container:nth-child(4) { width:7px; height:7px; animation-name: move-frames-4; animation-duration: 31210ms; animation-delay: 3816ms;}
-    @keyframes move-frames-4 { from {transform:translate3d(29vw,101vh,0);} to {transform:translate3d(47vw,-103vh,0);} }
-    .circle-container:nth-child(4) .circle { animation-delay: 3947ms;}
-    .circle-container:nth-child(5) { width:12px; height:12px; animation-name: move-frames-5; animation-duration: 32610ms; animation-delay: 1293ms;}
-    @keyframes move-frames-5 { from {transform:translate3d(20vw,104vh,0);} to {transform:translate3d(76vw,-131vh,0);} }
-    .circle-container:nth-child(5) .circle { animation-delay: 554ms;}
-    .circle-container:nth-child(6) { width:6px; height:6px; animation-name: move-frames-6; animation-duration: 36741ms; animation-delay: 1650ms;}
-    @keyframes move-frames-6 { from {transform:translate3d(40vw,102vh,0);} to {transform:translate3d(6vw,-117vh,0);} }
-    .circle-container:nth-child(6) .circle { animation-delay: 2052ms;}
-    .circle-container:nth-child(7) { width:9px; height:9px; animation-name: move-frames-7; animation-duration: 32297ms; animation-delay: 3610ms;}
-    @keyframes move-frames-7 { from {transform:translate3d(76vw,109vh,0);} to {transform:translate3d(23vw,-117vh,0);} }
-    .circle-container:nth-child(7) .circle { animation-delay: 347ms;}
-    .circle-container:nth-child(8) { width:7px; height:7px; animation-name: move-frames-8; animation-duration: 30947ms; animation-delay: 1614ms;}
-    @keyframes move-frames-8 { from {transform:translate3d(6vw,107vh,0);} to {transform:translate3d(42vw,-135vh,0);} }
-    .circle-container:nth-child(8) .circle { animation-delay: 492ms;}
-    .circle-container:nth-child(9) { width:5px; height:5px; animation-name: move-frames-9; animation-duration: 31436ms; animation-delay: 2332ms;}
-    @keyframes move-frames-9 { from {transform:translate3d(86vw,101vh,0);} to {transform:translate3d(71vw,-104vh,0);} }
-    .circle-container:nth-child(9) .circle { animation-delay: 1387ms;}
-    .circle-container:nth-child(10) { width:11px; height:11px; animation-name: move-frames-10; animation-duration: 33449ms; animation-delay: 2638ms;}
-    @keyframes move-frames-10 { from {transform:translate3d(68vw,109vh,0);} to {transform:translate3d(33vw,-115vh,0);} }
-    .circle-container:nth-child(10) .circle { animation-delay: 3979ms;}
-
     header {
       background: linear-gradient(90deg, #1e90a6 0%, #0a2540 100%);
       color: #00ffb3;
@@ -287,17 +255,138 @@
         border-radius: 0;
       }
     }
+    /* Nuevos estilos */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    .hero-title {
+      font-size: 4rem;
+      background: linear-gradient(90deg, #00ffb3, #1e90a6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: titleGlow 2s ease-in-out infinite alternate;
+    }
+
+    .testimonials {
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 1200px;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .testimonial-card {
+      background: rgba(30,144,166,0.1);
+      padding: 1.5rem;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0,255,179,0.2);
+      transition: transform 0.3s;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(30,144,166,0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0,255,179,0.2);
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      background: rgba(30,144,166,0.2);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+      transition: all 0.3s;
+      z-index: 1000;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+    }
+
+    @keyframes titleGlow {
+      from { text-shadow: 0 0 20px rgba(0,255,179,0.5); }
+      to { text-shadow: 0 0 30px rgba(0,255,179,0.8); }
+    }
   </style>
   <script>
-    // Fondo animado técnico
+    // Fondo animado moderno y fluido
     window.onload = function() {
       const container = document.createElement('div');
       container.className = 'container';
-      for(let i=1; i<=10; i++) {
+      const colors = [
+        'rgba(0,255,179,0.7)', 'rgba(30,144,166,0.5)', 'rgba(255,145,0,0.4)', 'rgba(0,255,255,0.3)', 'rgba(255,255,255,0.2)'
+      ];
+      for(let i=0; i<18; i++) {
         const cc = document.createElement('div');
         cc.className = 'circle-container';
-        cc.innerHTML = '<div class="circle"></div>';
+        const size = Math.random() * 60 + 20; // 20px - 80px
+        cc.style.width = size + 'px';
+        cc.style.height = size + 'px';
+        cc.style.left = (Math.random() * 100) + 'vw';
+        cc.style.top = (Math.random() * 100) + 'vh';
+        cc.style.animationName = 'move-frames-' + i;
+        cc.style.animationDuration = (Math.random() * 15 + 18) + 's';
+        cc.style.animationDelay = (Math.random() * 5) + 's';
+        // Círculo
+        const circle = document.createElement('div');
+        circle.className = 'circle';
+        circle.style.background = `radial-gradient(circle at 60% 40%, ${colors[i%colors.length]} 0%, #1e90a6 60%, rgba(30,144,166,0) 100%)`;
+        cc.appendChild(circle);
         container.appendChild(cc);
+
+        // Keyframes dinámicos para cada círculo
+        const styleSheet = document.styleSheets[0];
+        const x1 = Math.random() * 100, y1 = Math.random() * 100;
+        const x2 = Math.random() * 100, y2 = Math.random() * 100;
+        styleSheet.insertRule(`
+          @keyframes move-frames-${i} {
+            0% { transform: translate3d(${x1}vw,${y1}vh,0) scale(1); }
+            100% { transform: translate3d(${x2}vw,${y2}vh,0) scale(${Math.random()*1.5+0.7}); }
+          }
+        `, styleSheet.cssRules.length);
       }
       document.body.prepend(container);
     };
@@ -315,13 +404,25 @@
         cerrarModal();
       }
     };
+    function obtenerUbicacion() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          const coords = `Lat: ${position.coords.latitude}, Lng: ${position.coords.longitude}`;
+          document.getElementById('direccion').value += (document.getElementById('direccion').value ? '\n' : '') + coords;
+        }, function(error) {
+          alert('No se pudo obtener la ubicación: ' + error.message);
+        });
+      } else {
+        alert('La geolocalización no es soportada por este navegador.');
+      }
+    }
   </script>
 </head>
 <body>
-<header>
-  <h1>Cable Sistema</h1>
-  <p>¡Más de 110 canales en alta definición para toda la familia!</p>
-</header>
+  <header>
+    <h1 class="hero-title">Cable Sistema</h1>
+    <p>Conectando tu mundo con la mejor tecnología</p>
+  </header>
   <h2>Planes de Internet Simétrico</h2>
   <div class="plan-container">
     <div class="plan">
@@ -348,12 +449,13 @@
     <div class="plan">
       <img src="logo-01.png" alt="Plan D">
       <h3>Plan D - Solo Cable</h3>
-      <p><strong>Precio:</strong> L. 250</p><p>Para 3 Television</p> 
+      <p><strong>Precio:</strong> L. 250</p><p>Para 3 Televisión</p> 
       <a href="#" class="cta" onclick="abrirModal('Plan D - Solo Cable')">Solicitar</a>
     </div>
   </div>
+  <h2>Nuestros Servicios</h2>
   <ul>
-    <li>🛜 WIFI 4G 5G y 6G</li>
+    <li>🛜 WIFI 5G y 6G</li>
     <li>🎮 Servicios IP para gamers</li>
     <li>🏢 Planes residenciales y empresariales</li>
   </ul>
@@ -371,50 +473,77 @@
   <p>📧 Email: Cablesistemahonduras@gmail.com</p>
   <p>📍 Oficinas: Choloma, Cortés</p>
 </section>
-<footer>
-  <p>&copy; 2025 Cable Sistema. Todos los derechos reservados.</p>
-</footer>
+
+<section class="testimonials">
+    <h2>Lo que dicen nuestros clientes</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p>"El mejor servicio de internet que he tenido. La velocidad es increíble."</p>
+        <h4>- María G.</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>"La atención al cliente es excepcional, siempre están disponibles."</p>
+        <h4>- Carlos R.</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>"Instalación rápida y profesional. Muy satisfecho con el servicio."</p>
+        <h4>- Ana P.</h4>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🚀</div>
+      <h3>Velocidad Superior</h3>
+      <p>Internet simétrico de alta velocidad</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🛡️</div>
+      <h3>Seguridad Garantizada</h3>
+      <p>Conexión segura y estable</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎮</div>
+      <h3>Gaming Optimizado</h3>
+      <p>Baja latencia para gaming</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📺</div>
+      <h3>TV HD</h3>
+      <p>Más de 110 canales en HD</p>
+    </div>
+  </section>
+
+  <a href="https://wa.me/50489457861" class="whatsapp-float" target="_blank">
+    📱
+  </a>
+
+  <footer>
+    <p>&copy; 2025 Cable Sistema. Todos los derechos reservados.</p>
+  </footer>
 <!-- Modal para solicitar -->
 <div class="modal" id="solicitarModal">
   <div class="modal-content">
     <span class="close-modal" onclick="cerrarModal()">&times;</span>
     <h3>Solicita tu Plan Tecnológico 🚀</h3>
-    <form id="solicitudForm" action="https://formsubmit.co/arielreyesalcerro@gmail.com" method="POST">
+    <form id="solicitudForm" name="solicitudForm" action="https://formsubmit.co/arielreyesalcerro@gmail.com" method="POST">
       <input type="hidden" id="planSeleccionado" name="Plan">
-      <label for="nombre">👤 Nombre completo (usuario):</label><br>
-      <input type="text" id="nombre" name="Nombre" required autocomplete="name" placeholder="Ej: Alexa Quantum"><br>
-      <label for="id">🆔 Identificación digital:</label><br>
-      <input type="text" id="id" name="Identificación" required placeholder="Tu número de identidad"><br>
-      <label for="telefono">📱 Teléfono inteligente:</label><br>
-      <input type="tel" id="telefono" name="Teléfono" required pattern="[0-9+ ]{8,15}" placeholder="+504 9999-9999"><br>
-      <label for="direccion">📡 Dirección de instalación:</label><br>
-      <textarea id="direccion" name="Dirección" rows="2" required placeholder="Ciudad, colonia, referencia..."></textarea><br>
-      <button type="button" onclick="obtenerUbicacion()" style="margin-bottom:10px;background:#00ffb3;color:#0a2540;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;">📍 Obtener mi ubicación GPS</button>
+      <label for="nombre">👤 Nombre completo:</label><br>
+      <input type="text" id="nombre" name="nombre" required autocomplete="name" placeholder="Ej: Juan Pérez"><br>
+      <label for="id">🆔 Identificación:</label><br>
+      <input type="text" id="id" name="identificacion" required placeholder="Tu número de identidad"><br>
+      <label for="telefono">📱 Teléfono:</label><br>
+      <input type="tel" id="telefono" name="telefono" required pattern="[0-9+ ]{8,15}" placeholder="+504 9999-9999"><br>
+      <label for="direccion">📡 Dirección:</label><br>
+      <textarea id="direccion" name="direccion" rows="2" required placeholder="Ciudad, colonia, referencia..."></textarea><br>
+      <button type="button" onclick="obtenerUbicacion()">📍 Obtener mi ubicación GPS</button>
       <button type="submit">¡Conectar al Futuro!</button>
     </form>
   </div>
 </div>
-<script>
-function obtenerUbicacion() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      const coords = `Lat: ${position.coords.latitude}, Lng: ${position.coords.longitude}`;
-      document.getElementById('direccion').value += (document.getElementById('direccion').value ? '\n' : '') + coords;
-    }, function(error) {
-      alert('No se pudo obtener la ubicación: ' + error.message);
-    });
-  } else {
-    alert('La geolocalización no es soportada por este navegador.');
-  }
-}
-</script>
 </body>
 </html>
-
-
-
-
-
 
 
 
