@@ -6,6 +6,14 @@
   <meta name="description" content="Cable Sistema - Planes de Internet y Cable TV en Choloma, Cortés">
   <title>Planes de Internet Cable Sistema</title>
   <style>
+    :root {
+      --neon-primary: #00fff2;
+      --neon-secondary: #8f1b72;
+      --cyber-blue: #0affff;
+      --cyber-purple: #bc13fe;
+      --glass-bg: rgba(10, 20, 30, 0.7);
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { width: 100%; height: 100%; }
     body {
@@ -264,6 +272,7 @@
       font-size: 4rem;
       background: linear-gradient(90deg, #00ffb3, #1e90a6);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: titleGlow 2s ease-in-out infinite alternate;
     }
@@ -350,7 +359,58 @@
       from { text-shadow: 0 0 20px rgba(0,255,179,0.5); }
       to { text-shadow: 0 0 30px rgba(0,255,179,0.8); }
     }
+
+    /* Nueva navegación */
+    .nav-container {
+      position: sticky;
+      top: 0;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      padding: 1rem;
+      z-index: 100;
+      margin-bottom: 2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--neon-primary);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      transition: all 0.3s;
+    }
+
+    .nav-links a:hover {
+      background: rgba(0,255,179,0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Loading animation */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--neon-primary), var(--cyber-purple));
+      z-index: 1000;
+      animation: loading 2s ease-in-out;
+      opacity: 0;
+    }
+
+    @keyframes loading {
+      0% { width: 0; opacity: 1; }
+      50% { width: 50%; opacity: 1; }
+      100% { width: 100%; opacity: 0; }
+    }
   </style>
+
   <script>
     // Fondo animado moderno y fluido
     window.onload = function() {
@@ -416,46 +476,91 @@
         alert('La geolocalización no es soportada por este navegador.');
       }
     }
+
+    // Add loading animation
+    document.addEventListener('DOMContentLoaded', () => {
+      const loader = document.createElement('div');
+      loader.className = 'loader';
+      document.body.appendChild(loader);
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
   </script>
 </head>
 <body>
+  <div class="loader"></div>
   <header>
     <h1 class="hero-title">Cable Sistema</h1>
     <p>Conectando tu mundo con la mejor tecnología</p>
   </header>
-  <h2>Planes de Internet Simétrico</h2>
+
+  <nav class="nav-container">
+    <div class="nav-links">
+      <a href="#planes">Planes</a>
+      <a href="#servicios">Servicios</a>
+    </div>
+  </nav>
+
+  <h2 id="planes">Planes de Internet Simétrico</h2>
   <div class="plan-container">
     <div class="plan">
-      <img src="logo-01.png" alt="Plan A">
+      <img src="logo-04.jpg" alt="Plan A">
       <h3>Plan A - Cable + 50 Mbps</h3>
       <p><strong>Precio:</strong> L. 600</p>
       <p><strong>Extras:</strong> 1 Caja HD</p><p>Instalación Gratis</p>
       <a href="#" class="cta" onclick="abrirModal('Plan A - Cable + 50 Mbps')">Solicitar</a>
     </div>
     <div class="plan">
-      <img src="logo-01.png" alt="Plan B">
+      <img src="logo-04.jpg" alt="Plan B">
       <h3>Plan B - Cable + 75 Mbps</h3>
       <p><strong>Precio:</strong> L. 800</p>
       <p><strong>Extras:</strong> 1 Caja HD </p><p> 1 Cámara de Seguridad </p><p>Instalación Gratis</p>
       <a href="#" class="cta" onclick="abrirModal('Plan B - Cable + 75 Mbps')">Solicitar</a>
     </div>
     <div class="plan">
-      <img src="logo-01.png" alt="Plan C">
+      <img src="logo-04.jpg" alt="Plan C">
       <h3>Plan C - Cable + 100 Mbps</h3>
       <p><strong>Precio:</strong> L. 1,000</p>
       <p><strong>Extras:</strong> 1 Caja HD </p><p>1 Cámara de Seguridad </p><p>Instalacion Gratis</p>
       <a href="#" class="cta" onclick="abrirModal('Plan C - Cable + 100 Mbps')">Solicitar</a>
     </div>
     <div class="plan">
-      <img src="logo-01.png" alt="Plan D">
+      <img src="logo-04.jpg" alt="Plan D">
       <h3>Plan D - Solo Cable</h3>
       <p><strong>Precio:</strong> L. 250</p><p>Para 3 Televisión</p> 
       <a href="#" class="cta" onclick="abrirModal('Plan D - Solo Cable')">Solicitar</a>
     </div>
+
+    <div class="plan">
+      <img src="logo-02.png" alt="Plan Premium Plus">
+      <h3>Equipo Extra</h3>
+      <h3>Mini UPS</h3>
+      <p><strong>Precio:</strong> L. 600</p>
+      <p>Bateria para la ONU duracion 6 hora</p>
+      <p>Instalacion Gratis</p>
+      <a href="#" class="cta" onclick="abrirModal('Plan Premium Plus')">Solicitar</a>
+    </div>
+
+    <div class="plan">
+      <img src="logo-03.png" alt="Plan Empresarial Pro">
+      <h3>Equipo Extra</h3>
+      <h3> 1 Camara de Segurida</h3>
+      <P>Instalacion Gratis</P>
+      <p><strong>Precio:</strong> L. 1,500</p>
+      <a href="#" class="cta" onclick="abrirModal('Plan Empresarial Pro')">Solicitar</a>
+    </div>
   </div>
-  <h2>Nuestros Servicios</h2>
+  <h2 id="servicios">Nuestros Servicios</h2>
   <ul>
-    <li>🛜 WIFI 5G y 6G</li>
+    <li>🛜 WIFI  2.4G 5G  6G</li>
     <li>🎮 Servicios IP para gamers</li>
     <li>🏢 Planes residenciales y empresariales</li>
   </ul>
@@ -472,25 +577,7 @@
   <p>📱 WhatsApp: +504 89457861 +504 9745-6647 </p>
   <p>📧 Email: Cablesistemahonduras@gmail.com</p>
   <p>📍 Oficinas: Choloma, Cortés</p>
-</section>
-
-<section class="testimonials">
-    <h2>Lo que dicen nuestros clientes</h2>
-    <div class="testimonial-grid">
-      <div class="testimonial-card">
-        <p>"El mejor servicio de internet que he tenido. La velocidad es increíble."</p>
-        <h4>- María G.</h4>
-      </div>
-      <div class="testimonial-card">
-        <p>"La atención al cliente es excepcional, siempre están disponibles."</p>
-        <h4>- Carlos R.</h4>
-      </div>
-      <div class="testimonial-card">
-        <p>"Instalación rápida y profesional. Muy satisfecho con el servicio."</p>
-        <h4>- Ana P.</h4>
-      </div>
-    </div>
-  </section>
+</section> 
 
   <section class="features-grid">
     <div class="feature-card">
@@ -544,8 +631,6 @@
 </div>
 </body>
 </html>
-
-
 
 
 
